@@ -3,21 +3,35 @@ export const prerender = false; // necesario para permitir POST en Astro (output
 
 import { Resend } from "resend";
 
-const apiKey = import.meta.env.RESEND_API_KEY;
-const resend = new Resend(apiKey);
-
 export async function POST({ request }) {
   try {
+    const apiKey = import.meta.env.RESEND_API_KEY;
+
+    if (!apiKey) {
+      console.error("[CONTACTO] Falta RESEND_API_KEY en el entorno");
+      return new Response(
+        JSON.stringify({
+          success: false,
+          source: "config",
+          message: "Falta configurar RESEND_API_KEY en el servidor",
+        }),
+        {
+          status: 500,
+          headers: { "Content-Type": "application/json" },
+        }
+      );
+    }
+
+    const resend = new Resend(apiKey);
+
     const body = await request.json();
     const { nombre, email, tipo, mensaje } = body;
 
     console.log("[CONTACTO] Datos recibidos:", body);
 
     const { data, error } = await resend.emails.send({
-      // ✅ YA EN PRODUCCIÓN: usar tu dominio verificado
       from: "Codery.mx <no-reply@codery.mx>",
       to: ["info@codery.mx"],
-
       subject: "Nueva solicitud de cotización",
       html: `
         <h2>Nuevo contacto desde Codery.mx</h2>
@@ -37,13 +51,22 @@ export async function POST({ request }) {
           source: "resend",
           error,
         }),
-        { status: 500 }
+        {
+          status: 500,
+          headers: { "Content-Type": "application/json" },
+        }
       );
     }
 
     console.log("[CONTACTO] Email enviado:", data);
 
-    return new Response(JSON.stringify({ success: true }), { status: 200 });
+    return new Response(
+      JSON.stringify({ success: true }),
+      {
+        status: 200,
+        headers: { "Content-Type": "application/json" },
+      }
+    );
   } catch (err) {
     console.error("[CONTACTO] Error servidor:", err);
 
@@ -53,7 +76,10 @@ export async function POST({ request }) {
         source: "handler",
         message: err?.message ?? "Unknown error",
       }),
-      { status: 500 }
+      {
+        status: 500,
+        headers: { "Content-Type": "application/json" },
+      }
     );
   }
 }
