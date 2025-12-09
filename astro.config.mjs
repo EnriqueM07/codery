@@ -1,11 +1,16 @@
 // astro.config.mjs
 import { defineConfig, envField } from "astro/config";
 import cloudflare from "@astrojs/cloudflare";
+import sitemap from "@astrojs/sitemap";
 
 export default defineConfig({
+  site: "https://codery.mx",
   adapter: cloudflare({
     mode: "directory", // para Cloudflare Pages
   }),
+  integrations: [
+    sitemap(), // 👈 genera sitemap.xml automáticamente
+  ],
   output: "server",
 
   env: {
