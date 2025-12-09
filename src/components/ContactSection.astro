@@ -1,0 +1,165 @@
+<section id="contacto" class="pb-16 pt-10">
+  <div class="grid gap-12 md:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)]">
+    <div>
+      <h2 class="mb-3 text-3xl font-extrabold text-slate-50 md:text-4xl">
+        Hablemos de tu Próximo Proyecto
+      </h2>
+      <p class="mb-8 text-lg text-slate-400">
+        Entre más detalles nos compartas sobre tu necesidad o problema a
+        resolver, mejor podremos proponerte una solución tecnológica y un
+        plan de acción alineado a tus objetivos de negocio.
+      </p>
+
+      <div
+        class="rounded-xl border border-slate-800 bg-slate-900 p-6 shadow-lg"
+      >
+        <h3 class="mb-3 text-xl font-semibold text-slate-200">
+          Información de Contacto
+        </h3>
+        <ul class="space-y-3 text-sm text-slate-300">
+          <li class="flex items-center">
+            <i
+              data-lucide="mail"
+              class="mr-3 h-4 w-4 text-violet-400"
+            ></i>
+            <span class="font-semibold">Correo:</span>
+            <a
+              href="mailto:codery.contacto@codery.mx"
+              class="ml-2 text-indigo-300 transition hover:text-indigo-400"
+            >
+              info@codery.mx
+            </a>
+          </li>
+          <li class="flex items-center">
+            <i
+              data-lucide="phone"
+              class="mr-3 h-4 w-4 text-violet-400"
+            ></i>
+            <span class="font-semibold">Teléfono:</span>
+            <a
+              href="tel:+524443145265"
+              class="ml-2 text-indigo-300 transition hover:text-indigo-400"
+            >
+              +52 444 314 5265
+            </a>
+          </li>
+          <li class="flex items-center">
+            <i
+              data-lucide="facebook"
+              class="mr-3 h-4 w-4 text-violet-400"
+            ></i>
+            <span class="font-semibold">Facebook:</span>
+            <a
+              href="https://facebook.com/codery"
+              target="_blank"
+              rel="noreferrer"
+              class="ml-2 text-indigo-300 transition hover:text-indigo-400"
+            >
+              @codery
+            </a>
+          </li>
+          <li class="flex items-center">
+            <i
+              data-lucide="instagram"
+              class="mr-3 h-4 w-4 text-violet-400"
+            ></i>
+            <span class="font-semibold">Instagram:</span>
+            <a
+              href="https://instagram.com/codery"
+              target="_blank"
+              rel="noreferrer"
+              class="ml-2 text-indigo-300 transition hover:text-indigo-400"
+            >
+              @codery
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Formulario -->
+    <form
+      class="space-y-5 rounded-2xl border border-slate-800 bg-slate-900/80 p-6 text-sm shadow-2xl shadow-violet-900/40 md:p-8"
+      onsubmit="alert('Formulario de prueba enviado. ¡Gracias por tu interés!'); return false;"
+    >
+      <div>
+        <label
+          for="nombre-form"
+          class="mb-1 block text-xs font-semibold uppercase tracking-[0.1em] text-slate-300"
+          >Nombre completo</label
+        >
+        <input
+          id="nombre-form"
+          name="nombre"
+          type="text"
+          required
+          placeholder="Tu Nombre"
+          class="w-full rounded-xl border border-slate-700 bg-slate-950 px-4 py-2.5 text-sm text-slate-100 placeholder:text-slate-500 focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500 transition"
+        />
+      </div>
+
+      <div>
+        <label
+          for="email-form"
+          class="mb-1 block text-xs font-semibold uppercase tracking-[0.1em] text-slate-300"
+          >Correo electrónico</label
+        >
+        <input
+          id="email-form"
+          name="email"
+          type="email"
+          required
+          placeholder="contacto@empresa.com"
+          class="w-full rounded-xl border border-slate-700 bg-slate-950 px-4 py-2.5 text-sm text-slate-100 placeholder:text-slate-500 focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500 transition"
+        />
+      </div>
+
+      <div>
+        <label
+          for="tipo"
+          class="mb-1 block text-xs font-semibold uppercase tracking-[0.1em] text-slate-300"
+          >Tipo de proyecto</label
+        >
+        <select
+          id="tipo"
+          name="tipo"
+          class="w-full rounded-xl border border-slate-700 bg-slate-950 px-4 py-2.5 text-sm text-slate-100 focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500 transition"
+        >
+          <option value="">Selecciona el tipo de solución</option>
+          <option value="web">Aplicación web</option>
+          <option value="mobile">Aplicación móvil (iOS/Android)</option>
+          <option value="api">API / Integraciones de Backend</option>
+          <option value="desktop">Software de escritorio</option>
+          <option value="otro">Otro</option>
+        </select>
+      </div>
+
+      <div>
+        <label
+          for="mensaje"
+          class="mb-1 block text-xs font-semibold uppercase tracking-[0.1em] text-slate-300"
+          >Cuéntanos más detalles</label
+        >
+        <textarea
+          id="mensaje"
+          name="mensaje"
+          rows="5"
+          required
+          placeholder="Explica tu idea, qué problema resuelve o qué funcionalidades necesitas."
+          class="w-full rounded-xl border border-slate-700 bg-slate-950 px-4 py-2.5 text-sm text-slate-100 placeholder:text-slate-500 focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500 transition"
+        ></textarea>
+      </div>
+
+      <button
+        type="submit"
+        class="btn-primary w-full rounded-full bg-gradient-to-r from-indigo-600 to-violet-600 px-4 py-3 text-base font-semibold text-white shadow-lg shadow-indigo-500/50"
+      >
+        Enviar Solicitud de Cotización
+      </button>
+
+      <p class="text-center text-[0.7rem] text-slate-400">
+        (Este formulario es solo una demostración de interfaz.)
+      </p>
+    </form>
+  </div>
+</section>
