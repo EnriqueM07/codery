@@ -24,7 +24,7 @@
             ></i>
             <span class="font-semibold">Correo:</span>
             <a
-              href="mailto:codery.contacto@codery.mx"
+              href="mailto:info@codery.mx"
               class="ml-2 text-indigo-300 transition hover:text-indigo-400"
             >
               info@codery.mx
@@ -50,7 +50,7 @@
             ></i>
             <span class="font-semibold">Facebook:</span>
             <a
-              href="https://facebook.com/codery"
+              href="https://www.facebook.com/share/1GddC7Lbrv/?mibextid=wwXIfr"
               target="_blank"
               rel="noreferrer"
               class="ml-2 text-indigo-300 transition hover:text-indigo-400"
@@ -79,8 +79,8 @@
 
     <!-- Formulario -->
     <form
+      id="form-contacto"
       class="space-y-5 rounded-2xl border border-slate-800 bg-slate-900/80 p-6 text-sm shadow-2xl shadow-violet-900/40 md:p-8"
-      onsubmit="alert('Formulario de prueba enviado. ¡Gracias por tu interés!'); return false;"
     >
       <div>
         <label
@@ -163,3 +163,44 @@
     </form>
   </div>
 </section>
+<script is:inline>
+  if (typeof window !== "undefined") {
+    const form = document.getElementById("form-contacto");
+
+    if (form && form instanceof HTMLFormElement) {
+      form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+
+        const formData = new FormData(form);
+
+        const data = {
+          nombre: (formData.get("nombre") ?? "").toString(),
+          email: (formData.get("email") ?? "").toString(),
+          tipo: (formData.get("tipo") ?? "").toString(),
+          mensaje: (formData.get("mensaje") ?? "").toString(),
+        };
+
+        try {
+          const response = await fetch("/api/contacto", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(data),
+          });
+
+          const result = await response.json();
+          console.log("[CONTACTO] Respuesta servidor:", result);
+
+          if (response.ok && result.success) {
+            alert("✔ Tu mensaje fue enviado correctamente.");
+            form.reset();
+          } else {
+            alert("❌ Hubo un error enviando el mensaje.");
+          }
+        } catch (error) {
+          console.error("[CONTACTO] Error fetch:", error);
+          alert("❌ Error de conexión al enviar el formulario.");
+        }
+      });
+    }
+  }
+</script>
