@@ -1,33 +1,19 @@
 // src/pages/api/contacto.js
-export const prerender = false; // necesario para permitir POST en Astro (output: "static")
+export const prerender = false;
 
 import { Resend } from "resend";
+import { RESEND_API_KEY } from "astro:env/server"; // 👈 clave aquí
 
 export async function POST({ request }) {
   try {
-    const apiKey = import.meta.env.RESEND_API_KEY;
-
-    if (!apiKey) {
-      console.error("[CONTACTO] Falta RESEND_API_KEY en el entorno");
-      return new Response(
-        JSON.stringify({
-          success: false,
-          source: "config",
-          message: "Falta configurar RESEND_API_KEY en el servidor",
-        }),
-        {
-          status: 500,
-          headers: { "Content-Type": "application/json" },
-        }
-      );
-    }
-
-    const resend = new Resend(apiKey);
+    const apiKey = RESEND_API_KEY; // ya viene del entorno “server”
 
     const body = await request.json();
     const { nombre, email, tipo, mensaje } = body;
 
     console.log("[CONTACTO] Datos recibidos:", body);
+
+    const resend = new Resend(apiKey);
 
     const { data, error } = await resend.emails.send({
       from: "Codery.mx <no-reply@codery.mx>",
@@ -44,13 +30,8 @@ export async function POST({ request }) {
 
     if (error) {
       console.error("[CONTACTO] Error Resend:", error);
-
       return new Response(
-        JSON.stringify({
-          success: false,
-          source: "resend",
-          error,
-        }),
+        JSON.stringify({ success: false, source: "resend", error }),
         {
           status: 500,
           headers: { "Content-Type": "application/json" },
@@ -69,7 +50,6 @@ export async function POST({ request }) {
     );
   } catch (err) {
     console.error("[CONTACTO] Error servidor:", err);
-
     return new Response(
       JSON.stringify({
         success: false,

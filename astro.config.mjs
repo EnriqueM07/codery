@@ -1,14 +1,14 @@
-// @ts-check
+// astro.config.mjs
 import { defineConfig } from 'astro/config';
-import cloudflare from "@astrojs/cloudflare";
+import cloudflare from '@astrojs/cloudflare';
+import { z } from 'zod';
 
-import tailwindcss from '@tailwindcss/vite';
-
-// https://astro.build/config
 export default defineConfig({
-  output: "server", // OBLIGATORIO para endpoints
-  adapter: cloudflare(),
-  vite: {
-    plugins: [tailwindcss()]
-  }
+  adapter: cloudflare({ mode: 'directory' }),
+  output: 'server',
+  env: {
+    schema: {
+      RESEND_API_KEY: z.string().min(1),
+    },
+  },
 });
