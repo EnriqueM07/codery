@@ -1,14 +1,20 @@
 // astro.config.mjs
-import { defineConfig } from 'astro/config';
-import cloudflare from '@astrojs/cloudflare';
-import { z } from 'zod';
+import { defineConfig, envField } from "astro/config";
+import cloudflare from "@astrojs/cloudflare";
 
 export default defineConfig({
-  adapter: cloudflare({ mode: 'directory' }),
-  output: 'server',
+  adapter: cloudflare({
+    mode: "directory", // para Cloudflare Pages
+  }),
+  output: "server",
+
   env: {
     schema: {
-      RESEND_API_KEY: z.string().min(1),
+      // 🔐 Solo servidor, secreto (no llega nunca al cliente)
+      RESEND_API_KEY: envField.string({
+        context: "server",
+        access: "secret",
+      }),
     },
   },
 });

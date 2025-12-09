@@ -2,18 +2,16 @@
 export const prerender = false;
 
 import { Resend } from "resend";
-import { RESEND_API_KEY } from "astro:env/server"; // 👈 clave aquí
+import { RESEND_API_KEY } from "astro:env/server"; // 👈 viene tipado desde el schema
+
+const resend = new Resend(RESEND_API_KEY);
 
 export async function POST({ request }) {
   try {
-    const apiKey = RESEND_API_KEY; // ya viene del entorno “server”
-
     const body = await request.json();
     const { nombre, email, tipo, mensaje } = body;
 
     console.log("[CONTACTO] Datos recibidos:", body);
-
-    const resend = new Resend(apiKey);
 
     const { data, error } = await resend.emails.send({
       from: "Codery.mx <no-reply@codery.mx>",
@@ -41,13 +39,10 @@ export async function POST({ request }) {
 
     console.log("[CONTACTO] Email enviado:", data);
 
-    return new Response(
-      JSON.stringify({ success: true }),
-      {
-        status: 200,
-        headers: { "Content-Type": "application/json" },
-      }
-    );
+    return new Response(JSON.stringify({ success: true }), {
+      status: 200,
+      headers: { "Content-Type": "application/json" },
+    });
   } catch (err) {
     console.error("[CONTACTO] Error servidor:", err);
     return new Response(
