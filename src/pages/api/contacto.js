@@ -11,7 +11,7 @@ export async function POST({ request }) {
     const body = await request.json();
     const { nombre, email, tipo, mensaje } = body;
 
-    console.log("[CONTACTO] Datos recibidos:", body);
+    // console.log("[CONTACTO] Datos recibidos:", body);
 
     const { data, error } = await resend.emails.send({
       from: "Codery.mx <no-reply@codery.mx>",
@@ -27,7 +27,7 @@ export async function POST({ request }) {
     });
 
     if (error) {
-      console.error("[CONTACTO] Error Resend:", error);
+      // console.error("[CONTACTO] Error Resend:", error);
       return new Response(
         JSON.stringify({ success: false, source: "resend", error }),
         {
@@ -37,14 +37,14 @@ export async function POST({ request }) {
       );
     }
 
-    console.log("[CONTACTO] Email enviado:", data);
+    // console.log("[CONTACTO] Email enviado:", data);
 
     return new Response(JSON.stringify({ success: true }), {
       status: 200,
       headers: { "Content-Type": "application/json" },
     });
   } catch (err) {
-    console.error("[CONTACTO] Error servidor:", err);
+    // console.error("[CONTACTO] Error servidor:", err);
     return new Response(
       JSON.stringify({
         success: false,

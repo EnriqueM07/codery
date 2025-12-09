@@ -157,9 +157,9 @@
         Enviar Solicitud de Cotización
       </button>
 
-      <p class="text-center text-[0.7rem] text-slate-400">
+      <!-- <p class="text-center text-[0.7rem] text-slate-400">
         (Este formulario es solo una demostración de interfaz.)
-      </p>
+      </p> -->
     </form>
   </div>
 </section>
@@ -188,7 +188,7 @@
           });
 
           const result = await response.json();
-          console.log("[CONTACTO] Respuesta servidor:", result);
+          // console.log("[CONTACTO] Respuesta servidor:", result);
 
           if (response.ok && result.success) {
             alert("✔ Tu mensaje fue enviado correctamente.");
@@ -197,7 +197,7 @@
             alert("❌ Hubo un error enviando el mensaje.");
           }
         } catch (error) {
-          console.error("[CONTACTO] Error fetch:", error);
+          // console.error("[CONTACTO] Error fetch:", error);
           alert("❌ Error de conexión al enviar el formulario.");
         }
       });
