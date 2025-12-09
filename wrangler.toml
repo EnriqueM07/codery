@@ -1,7 +1,0 @@
-name = "codery"
-main = "./dist/_worker.js"
-compatibility_date = "2025-01-01"
-
-# Si usas variables de entorno
-[vars]
-RESEND_API_KEY = ""
