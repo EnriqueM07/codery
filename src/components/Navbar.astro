@@ -26,6 +26,7 @@
       </div>
     </a>
 
+    <!-- Menú desktop -->
     <nav class="hidden items-center gap-8 text-sm text-slate-300 md:flex">
       <a href="#inicio" class="transition duration-150 hover:text-white"
         >Inicio</a
@@ -48,9 +49,70 @@
       Cotización
     </a>
 
-    <!-- Botón móvil (sin menú funcional aún) -->
-    <button class="text-slate-200 md:hidden">
-      <i data-lucide="menu" class="h-6 w-6"></i>
+    <!-- Botón móvil -->
+    <button
+      id="mobile-menu-toggle"
+      class="text-slate-200 md:hidden"
+      aria-label="Abrir menú"
+    >
+      ☰
+      <!-- Si quieres usar lucide, aquí puedes poner el icono luego -->
     </button>
   </div>
+
+  <!-- Menú móvil -->
+  <nav
+    id="mobile-menu"
+    class="mx-auto mt-1 hidden max-w-6xl flex-col gap-2 px-4 pb-3 text-sm text-slate-200 md:hidden"
+  >
+    <a
+      href="#inicio"
+      class="block rounded-lg px-3 py-2 hover:bg-slate-800/70"
+      data-mobile-link
+      >Inicio</a
+    >
+    <a
+      href="#servicios"
+      class="block rounded-lg px-3 py-2 hover:bg-slate-800/70"
+      data-mobile-link
+      >Servicios</a
+    >
+    <a
+      href="#proyectos"
+      class="block rounded-lg px-3 py-2 hover:bg-slate-800/70"
+      data-mobile-link
+      >Proyectos</a
+    >
+    <a
+      href="#sobre-nosotros"
+      class="block rounded-lg px-3 py-2 hover:bg-slate-800/70"
+      data-mobile-link
+      >Sobre nosotros</a
+    >
+    <a
+      href="#contacto"
+      class="mt-1 block rounded-full bg-gradient-to-r from-indigo-600 to-violet-600 px-4 py-2 text-center text-xs font-semibold uppercase tracking-[0.15em] text-white shadow-lg shadow-indigo-500/40"
+      data-mobile-link
+    >
+      Cotización
+    </a>
+  </nav>
+
+  <script>
+    if (typeof window !== "undefined") {
+      const toggle = document.getElementById("mobile-menu-toggle");
+      const menu = document.getElementById("mobile-menu");
+
+      toggle?.addEventListener("click", () => {
+        menu?.classList.toggle("hidden");
+      });
+
+      // Cerrar menú al hacer clic en cualquier enlace
+      menu?.querySelectorAll("[data-mobile-link]").forEach((link) => {
+        link.addEventListener("click", () => {
+          menu.classList.add("hidden");
+        });
+      });
+    }
+  </script>
 </header>
