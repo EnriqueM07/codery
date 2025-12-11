@@ -2,6 +2,7 @@
 import { defineConfig, envField } from "astro/config";
 import cloudflare from "@astrojs/cloudflare";
 import sitemap from "@astrojs/sitemap";
+import tailwindcss from "@tailwindcss/vite";
 
 export default defineConfig({
   site: "https://codery.mx",
@@ -21,5 +22,8 @@ export default defineConfig({
         access: "secret",
       }),
     },
+  },
+  vite: {
+    plugins: [tailwindcss()], 
   },
 });

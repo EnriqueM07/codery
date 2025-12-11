@@ -151,10 +151,33 @@
       </div>
 
       <button
+        id="btn-submit"
         type="submit"
-        class="btn-primary w-full rounded-full bg-gradient-to-r from-indigo-600 to-violet-600 px-4 py-3 text-base font-semibold text-white shadow-lg shadow-indigo-500/50"
+        class="btn-primary w-full rounded-full bg-gradient-to-r from-indigo-600 to-violet-600 px-4 py-3 text-base font-semibold text-white shadow-lg shadow-indigo-500/50 flex items-center justify-center"
       >
-        Enviar Solicitud de Cotización
+        <span class="texto-btn">Enviar Solicitud de Cotización</span>
+        <!-- Spinner oculto inicialmente -->
+        <svg
+          id="spinner"
+          class="animate-spin ml-2 h-5 w-5 text-white hidden"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+        >
+          <circle
+            class="opacity-25"
+            cx="12"
+            cy="12"
+            r="10"
+            stroke="currentColor"
+            stroke-width="4"
+          ></circle>
+          <path
+            class="opacity-75"
+            fill="currentColor"
+            d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"
+          ></path>
+        </svg>
       </button>
 
       <!-- <p class="text-center text-[0.7rem] text-slate-400">
@@ -163,16 +186,24 @@
     </form>
   </div>
 </section>
+
 <script is:inline>
   if (typeof window !== "undefined") {
     const form = document.getElementById("form-contacto");
+    const btn = document.getElementById("btn-submit");
+    const spinner = document.getElementById("spinner");
+    const textoBtn = btn.querySelector(".texto-btn");
 
     if (form && form instanceof HTMLFormElement) {
       form.addEventListener("submit", async (e) => {
         e.preventDefault();
 
-        const formData = new FormData(form);
+        // Mostrar loading: desactivar botón, mostrar spinner y cambiar texto
+        btn.disabled = true;
+        spinner.classList.remove("hidden");
+        textoBtn.textContent = "Enviando…";
 
+        const formData = new FormData(form);
         const data = {
           nombre: (formData.get("nombre") ?? "").toString(),
           email: (formData.get("email") ?? "").toString(),
@@ -188,7 +219,6 @@
           });
 
           const result = await response.json();
-          // console.log("[CONTACTO] Respuesta servidor:", result);
 
           if (response.ok && result.success) {
             alert("✔ Tu mensaje fue enviado correctamente.");
@@ -197,10 +227,15 @@
             alert("❌ Hubo un error enviando el mensaje.");
           }
         } catch (error) {
-          // console.error("[CONTACTO] Error fetch:", error);
           alert("❌ Error de conexión al enviar el formulario.");
+        } finally {
+          // Ocultar loading: activar botón, ocultar spinner y restaurar texto
+          btn.disabled = false;
+          spinner.classList.add("hidden");
+          textoBtn.textContent = "Enviar Solicitud de Cotización";
         }
       });
     }
   }
 </script>
+
