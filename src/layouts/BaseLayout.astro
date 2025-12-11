@@ -22,10 +22,20 @@ const {
     <meta property="og:site_name" content="Codery.mx" />
 
     <!-- Fuente Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
     <link
+      rel="preload"
+      as="style"
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap"
-      rel="stylesheet"
     />
+
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap"
+    />
+
 
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-5TNWW6D6NZ"></script>
@@ -77,15 +87,23 @@ const {
     <slot />
 
     <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide@latest" is:inline></script>
+   <script type="module" src="/src/scripts/lucide-icons.ts"></script>
+    <!-- <script src="https://unpkg.com/lucide@latest" is:inline></script>
     <script is:inline>
       window.addEventListener("DOMContentLoaded", () => {
         if (window.lucide) {
           window.lucide.createIcons();
         }
       });
-    </script>
+    </script> -->
 
+<!-- 
+<script type="module">
+    import { createIcons, Mail, Phone, Instagram, Facebook } from "lucide";
+    createIcons();
+  </script> -->
+
+    
     <!-- Scroll suave a secciones -->
     <script is:inline>
       document.addEventListener("DOMContentLoaded", () => {
