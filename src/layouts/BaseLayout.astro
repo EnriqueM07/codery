@@ -15,19 +15,27 @@ const {
     <meta name="robots" content="index,follow" />
 
     <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
-    <!-- <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script> -->
     <!-- Open Graph básico -->
     <meta property="og:type" content="website" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:site_name" content="Codery.mx" />
 
-    <!-- <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script> -->
     <!-- Fuente Inter -->
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap"
       rel="stylesheet"
     />
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5TNWW6D6NZ"></script>
+    <script is:raw>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-5TNWW6D6NZ');
+    </script>
 
     <style>
       :root {
@@ -77,28 +85,27 @@ const {
         }
       });
     </script>
-  </head>
-  </body>
-  <script is:inline>
-  document.addEventListener("DOMContentLoaded", () => {
-    const links = document.querySelectorAll("a[href^='#']");
 
-    links.forEach(link => {
-      link.addEventListener("click", (e) => {
-        e.preventDefault();
-        const targetId = link.getAttribute("href");
-        const target = document.querySelector(targetId);
+    <!-- Scroll suave a secciones -->
+    <script is:inline>
+      document.addEventListener("DOMContentLoaded", () => {
+        const links = document.querySelectorAll("a[href^='#']");
 
-        if (target) {
-          window.scrollTo({
-            top: target.offsetTop - 20,
-            behavior: "smooth"
+        links.forEach((link) => {
+          link.addEventListener("click", (e) => {
+            e.preventDefault();
+            const targetId = link.getAttribute("href");
+            const target = document.querySelector(targetId);
+
+            if (target) {
+              window.scrollTo({
+                top: target.offsetTop - 20,
+                behavior: "smooth",
+              });
+            }
           });
-        }
+        });
       });
-    });
-  });
-</script>
-
+    </script>
+  </body>
 </html>
-
