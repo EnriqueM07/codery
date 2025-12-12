@@ -86,24 +86,15 @@ const {
   <body class="min-h-screen bg-slate-950 text-slate-50 antialiased">
     <slot />
 
-    <!-- Lucide Icons -->
-   <script type="module" src="/src/scripts/lucide-icons.ts"></script>
-    <!-- <script src="https://unpkg.com/lucide@latest" is:inline></script>
+    <script src="https://unpkg.com/lucide@latest" is:inline></script>
     <script is:inline>
       window.addEventListener("DOMContentLoaded", () => {
         if (window.lucide) {
           window.lucide.createIcons();
         }
       });
-    </script> -->
+    </script>
 
-<!-- 
-<script type="module">
-    import { createIcons, Mail, Phone, Instagram, Facebook } from "lucide";
-    createIcons();
-  </script> -->
-
-    
     <!-- Scroll suave a secciones -->
     <script is:inline>
       document.addEventListener("DOMContentLoaded", () => {
@@ -125,5 +116,6 @@ const {
         });
       });
     </script>
+
   </body>
 </html>
