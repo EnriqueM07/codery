@@ -1,188 +1,193 @@
-<section id="contacto" class="pb-16 pt-10">
-  <div class="grid gap-12 md:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)]">
+---
+const whatsappMessage = encodeURIComponent(
+  "Hola Codery.mx, quiero una cotización para un proyecto de software."
+);
+
+const whatsappUrl = `https://wa.me/524443145265?text=${whatsappMessage}`;
+---
+
+<section id="contacto" class="bg-gradient-to-b from-slate-50 to-white py-16 md:py-24">
+  <div class="mx-auto grid max-w-6xl gap-12 px-4 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]">
     <div>
-      <h2 class="mb-3 text-3xl font-extrabold text-slate-50 md:text-4xl">
-        Hablemos de tu Próximo Proyecto
-      </h2>
-      <p class="mb-8 text-lg text-slate-400">
-        Entre más detalles nos compartas sobre tu necesidad o problema a
-        resolver, mejor podremos proponerte una solución tecnológica y un
-        plan de acción alineado a tus objetivos de negocio.
+      <p class="mb-3 text-sm font-bold uppercase tracking-[0.18em] text-indigo-600">
+        Contacto
       </p>
 
-      <div
-        class="rounded-xl border border-slate-800 bg-slate-900 p-6 shadow-lg"
-      >
-        <h3 class="mb-3 text-xl font-semibold text-slate-200">
-          Información de Contacto
-        </h3>
-        <ul class="space-y-3 text-sm text-slate-300">
-          <li class="flex items-center">
-            <i
-              data-lucide="mail"
-              class="mr-3 h-4 w-4 text-violet-400"
-            ></i>
-            <span class="font-semibold">Correo:</span>
-            <a
-              href="mailto:info@codery.mx"
-              class="ml-2 text-indigo-300 transition hover:text-indigo-400"
-            >
-              info@codery.mx
-            </a>
-          </li>
-          <li class="flex items-center">
-            <i
-              data-lucide="phone"
-              class="mr-3 h-4 w-4 text-violet-400"
-            ></i>
-            <span class="font-semibold">Teléfono:</span>
-            <a
-              href="tel:+524443145265"
-              class="ml-2 text-indigo-300 transition hover:text-indigo-400"
-            >
-              +52 444 314 5265
-            </a>
-          </li>
-          <li class="flex items-center">
-            <i
-              data-lucide="facebook"
-              class="mr-3 h-4 w-4 text-violet-400"
-            ></i>
-            <span class="font-semibold">Facebook:</span>
-            <a
-              href="https://www.facebook.com/share/1GddC7Lbrv/?mibextid=wwXIfr"
-              target="_blank"
-              rel="noreferrer"
-              class="ml-2 text-indigo-300 transition hover:text-indigo-400"
-            >
-              @codery
-            </a>
-          </li>
-          <li class="flex items-center">
-            <i
-              data-lucide="instagram"
-              class="mr-3 h-4 w-4 text-violet-400"
-            ></i>
-            <span class="font-semibold">Instagram:</span>
-            <a
-              href="https://instagram.com/codery"
-              target="_blank"
-              rel="noreferrer"
-              class="ml-2 text-indigo-300 transition hover:text-indigo-400"
-            >
-              @codery
-            </a>
-          </li>
-        </ul>
+      <h2 class="mb-4 text-3xl font-extrabold text-slate-950 md:text-4xl">
+        Hablemos de tu próximo proyecto
+      </h2>
+
+      <p class="mb-8 text-lg text-slate-600">
+        Cuéntanos qué problema quieres resolver, qué proceso deseas automatizar
+        o qué sistema necesitas construir. Te ayudaremos a definir el siguiente
+        paso.
+      </p>
+
+      <div class="space-y-4">
+        <a
+          href="mailto:info@codery.mx"
+          class="flex items-center gap-4 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition hover:border-indigo-200 hover:bg-indigo-50/40"
+        >
+          <div class="flex h-11 w-11 items-center justify-center rounded-xl bg-indigo-50">
+            <i data-lucide="mail" class="h-5 w-5 text-indigo-600"></i>
+          </div>
+          <div>
+            <p class="text-sm font-bold text-slate-950">Correo</p>
+            <p class="text-sm text-slate-600">info@codery.mx</p>
+          </div>
+        </a>
+
+        <a
+          href="tel:+524443145265"
+          class="flex items-center gap-4 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition hover:border-indigo-200 hover:bg-indigo-50/40"
+        >
+          <div class="flex h-11 w-11 items-center justify-center rounded-xl bg-cyan-50">
+            <i data-lucide="phone" class="h-5 w-5 text-cyan-600"></i>
+          </div>
+          <div>
+            <p class="text-sm font-bold text-slate-950">Teléfono</p>
+            <p class="text-sm text-slate-600">+52 444 314 5265</p>
+          </div>
+        </a>
+
+        <a
+          href={whatsappUrl}
+          target="_blank"
+          rel="noreferrer"
+          class="flex items-center gap-4 rounded-2xl border border-emerald-200 bg-emerald-50 p-5 shadow-sm transition hover:bg-emerald-100"
+        >
+          <div class="flex h-11 w-11 items-center justify-center rounded-xl bg-white">
+            <i data-lucide="message-circle" class="h-5 w-5 text-emerald-600"></i>
+          </div>
+          <div>
+            <p class="text-sm font-bold text-emerald-900">WhatsApp</p>
+            <p class="text-sm text-emerald-700">Enviar mensaje directo</p>
+          </div>
+        </a>
       </div>
     </div>
 
     <!-- Formulario -->
     <form
       id="form-contacto"
-      class="space-y-5 rounded-2xl border border-slate-800 bg-slate-900/80 p-6 text-sm shadow-2xl shadow-violet-900/40 md:p-8"
+      class="rounded-[2rem] border border-slate-200 bg-white p-6 text-sm shadow-xl shadow-slate-200/70 md:p-8"
     >
-      <div>
-        <label
-          for="nombre-form"
-          class="mb-1 block text-xs font-semibold uppercase tracking-[0.1em] text-slate-300"
-          >Nombre completo</label
-        >
-        <input
-          id="nombre-form"
-          name="nombre"
-          type="text"
-          required
-          placeholder="Tu Nombre"
-          class="w-full rounded-xl border border-slate-700 bg-slate-950 px-4 py-2.5 text-sm text-slate-100 placeholder:text-slate-500 focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500 transition"
-        />
+      <div class="mb-6">
+        <h3 class="text-xl font-extrabold text-slate-950">
+          Solicita una cotización
+        </h3>
+        <p class="mt-1 text-sm text-slate-500">
+          Responde estos datos y te contactaremos con una propuesta inicial.
+        </p>
       </div>
 
-      <div>
-        <label
-          for="email-form"
-          class="mb-1 block text-xs font-semibold uppercase tracking-[0.1em] text-slate-300"
-          >Correo electrónico</label
+      <div class="space-y-5">
+        <div>
+          <label
+            for="nombre-form"
+            class="mb-1.5 block text-sm font-semibold text-slate-700"
+          >
+            Nombre completo
+          </label>
+          <input
+            id="nombre-form"
+            name="nombre"
+            type="text"
+            required
+            placeholder="Ej. Enrique Martínez"
+            class="min-h-[46px] w-full rounded-xl border border-slate-300 bg-white px-4 py-2.5 text-sm text-slate-900 placeholder:text-slate-400 transition focus:border-indigo-500 focus:outline-none focus:ring-4 focus:ring-indigo-100"
+          />
+        </div>
+
+        <div>
+          <label
+            for="email-form"
+            class="mb-1.5 block text-sm font-semibold text-slate-700"
+          >
+            Correo electrónico
+          </label>
+          <input
+            id="email-form"
+            name="email"
+            type="email"
+            required
+            placeholder="contacto@empresa.com"
+            class="min-h-[46px] w-full rounded-xl border border-slate-300 bg-white px-4 py-2.5 text-sm text-slate-900 placeholder:text-slate-400 transition focus:border-indigo-500 focus:outline-none focus:ring-4 focus:ring-indigo-100"
+          />
+        </div>
+
+        <div>
+          <label
+            for="tipo"
+            class="mb-1.5 block text-sm font-semibold text-slate-700"
+          >
+            Tipo de proyecto
+          </label>
+          <select
+            id="tipo"
+            name="tipo"
+            class="min-h-[46px] w-full rounded-xl border border-slate-300 bg-white px-4 py-2.5 text-sm text-slate-900 transition focus:border-indigo-500 focus:outline-none focus:ring-4 focus:ring-indigo-100"
+          >
+            <option value="">Selecciona el tipo de solución</option>
+            <option value="web">Aplicación web</option>
+            <option value="mobile">Aplicación móvil iOS / Android</option>
+            <option value="api">API / Integraciones Backend</option>
+            <option value="desktop">Software de escritorio</option>
+            <option value="ia">IA / Automatización</option>
+            <option value="otro">Otro</option>
+          </select>
+        </div>
+
+        <div>
+          <label
+            for="mensaje"
+            class="mb-1.5 block text-sm font-semibold text-slate-700"
+          >
+            Cuéntanos más detalles
+          </label>
+          <textarea
+            id="mensaje"
+            name="mensaje"
+            rows="5"
+            required
+            placeholder="Explica tu idea, proceso actual, problema o funcionalidades que necesitas."
+            class="w-full rounded-xl border border-slate-300 bg-white px-4 py-2.5 text-sm text-slate-900 placeholder:text-slate-400 transition focus:border-indigo-500 focus:outline-none focus:ring-4 focus:ring-indigo-100"
+          ></textarea>
+        </div>
+
+        <button
+          id="btn-submit"
+          type="submit"
+          class="btn-primary flex min-h-[50px] w-full items-center justify-center rounded-full bg-indigo-600 px-5 py-3 text-base font-semibold text-white shadow-lg shadow-indigo-600/25 hover:bg-indigo-700 disabled:cursor-not-allowed disabled:opacity-70"
         >
-        <input
-          id="email-form"
-          name="email"
-          type="email"
-          required
-          placeholder="contacto@empresa.com"
-          class="w-full rounded-xl border border-slate-700 bg-slate-950 px-4 py-2.5 text-sm text-slate-100 placeholder:text-slate-500 focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500 transition"
-        />
+          <span class="texto-btn">Enviar solicitud de cotización</span>
+
+          <svg
+            id="spinner"
+            class="ml-2 hidden h-5 w-5 animate-spin text-white"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+          >
+            <circle
+              class="opacity-25"
+              cx="12"
+              cy="12"
+              r="10"
+              stroke="currentColor"
+              stroke-width="4"
+            ></circle>
+            <path
+              class="opacity-75"
+              fill="currentColor"
+              d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"
+            ></path>
+          </svg>
+        </button>
+
+        <p id="form-status" class="hidden rounded-xl px-4 py-3 text-sm"></p>
       </div>
-
-      <div>
-        <label
-          for="tipo"
-          class="mb-1 block text-xs font-semibold uppercase tracking-[0.1em] text-slate-300"
-          >Tipo de proyecto</label
-        >
-        <select
-          id="tipo"
-          name="tipo"
-          class="w-full rounded-xl border border-slate-700 bg-slate-950 px-4 py-2.5 text-sm text-slate-100 focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500 transition"
-        >
-          <option value="">Selecciona el tipo de solución</option>
-          <option value="web">Aplicación web</option>
-          <option value="mobile">Aplicación móvil (iOS/Android)</option>
-          <option value="api">API / Integraciones de Backend</option>
-          <option value="desktop">Software de escritorio</option>
-          <option value="otro">Otro</option>
-        </select>
-      </div>
-
-      <div>
-        <label
-          for="mensaje"
-          class="mb-1 block text-xs font-semibold uppercase tracking-[0.1em] text-slate-300"
-          >Cuéntanos más detalles</label
-        >
-        <textarea
-          id="mensaje"
-          name="mensaje"
-          rows="5"
-          required
-          placeholder="Explica tu idea, qué problema resuelve o qué funcionalidades necesitas."
-          class="w-full rounded-xl border border-slate-700 bg-slate-950 px-4 py-2.5 text-sm text-slate-100 placeholder:text-slate-500 focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500 transition"
-        ></textarea>
-      </div>
-
-      <button
-        id="btn-submit"
-        type="submit"
-        class="btn-primary w-full rounded-full bg-gradient-to-r from-indigo-600 to-violet-600 px-4 py-3 text-base font-semibold text-white shadow-lg shadow-indigo-500/50 flex items-center justify-center"
-      >
-        <span class="texto-btn">Enviar Solicitud de Cotización</span>
-        <!-- Spinner oculto inicialmente -->
-        <svg
-          id="spinner"
-          class="animate-spin ml-2 h-5 w-5 text-white hidden"
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-        >
-          <circle
-            class="opacity-25"
-            cx="12"
-            cy="12"
-            r="10"
-            stroke="currentColor"
-            stroke-width="4"
-          ></circle>
-          <path
-            class="opacity-75"
-            fill="currentColor"
-            d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"
-          ></path>
-        </svg>
-      </button>
-
-      <!-- <p class="text-center text-[0.7rem] text-slate-400">
-        (Este formulario es solo una demostración de interfaz.)
-      </p> -->
     </form>
   </div>
 </section>
@@ -192,18 +197,49 @@
     const form = document.getElementById("form-contacto");
     const btn = document.getElementById("btn-submit");
     const spinner = document.getElementById("spinner");
-    const textoBtn = btn.querySelector(".texto-btn");
+    const status = document.getElementById("form-status");
+    const textoBtn = btn?.querySelector(".texto-btn");
 
-    if (form && form instanceof HTMLFormElement) {
+    const setStatus = (message, type) => {
+      if (!status) return;
+
+      status.textContent = message;
+      status.classList.remove(
+        "hidden",
+        "bg-emerald-50",
+        "text-emerald-700",
+        "border",
+        "border-emerald-200",
+        "bg-red-50",
+        "text-red-700",
+        "border-red-200"
+      );
+
+      status.classList.add("border");
+
+      if (type === "success") {
+        status.classList.add("bg-emerald-50", "text-emerald-700", "border-emerald-200");
+      } else {
+        status.classList.add("bg-red-50", "text-red-700", "border-red-200");
+      }
+    };
+
+    if (
+      form &&
+      form instanceof HTMLFormElement &&
+      btn instanceof HTMLButtonElement &&
+      spinner &&
+      textoBtn
+    ) {
       form.addEventListener("submit", async (e) => {
         e.preventDefault();
 
-        // Mostrar loading: desactivar botón, mostrar spinner y cambiar texto
         btn.disabled = true;
         spinner.classList.remove("hidden");
-        textoBtn.textContent = "Enviando…";
+        textoBtn.textContent = "Enviando...";
 
         const formData = new FormData(form);
+
         const data = {
           nombre: (formData.get("nombre") ?? "").toString(),
           email: (formData.get("email") ?? "").toString(),
@@ -221,21 +257,19 @@
           const result = await response.json();
 
           if (response.ok && result.success) {
-            alert("✔ Tu mensaje fue enviado correctamente.");
+            setStatus("Tu mensaje fue enviado correctamente. Te contactaremos pronto.", "success");
             form.reset();
           } else {
-            alert("❌ Hubo un error enviando el mensaje.");
+            setStatus("Hubo un error enviando el mensaje. Intenta nuevamente.", "error");
           }
         } catch (error) {
-          alert("❌ Error de conexión al enviar el formulario.");
+          setStatus("No se pudo conectar con el servidor. Intenta nuevamente.", "error");
         } finally {
-          // Ocultar loading: activar botón, ocultar spinner y restaurar texto
           btn.disabled = false;
           spinner.classList.add("hidden");
-          textoBtn.textContent = "Enviar Solicitud de Cotización";
+          textoBtn.textContent = "Enviar solicitud de cotización";
         }
       });
     }
   }
 </script>
-
