@@ -1,11 +1,11 @@
 <header
-  class="sticky top-0 z-30 border-b border-slate-800 bg-slate-950/80 backdrop-blur-md"
+  class="sticky top-0 z-50 border-b border-slate-200 bg-white/90 backdrop-blur-md"
 >
   <div class="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
     <!-- Logo -->
-    <a href="#inicio" class="flex items-center gap-3">
+    <a href="#inicio" class="flex items-center gap-3" aria-label="Ir al inicio">
       <div
-        class="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-indigo-500 via-violet-600 to-cyan-400 text-lg font-bold shadow-lg shadow-violet-500/30"
+        class="flex h-11 w-11 items-center justify-center rounded-2xl bg-gradient-to-br from-indigo-600 to-cyan-500 shadow-md"
       >
         <img
           src="/favicon.ico"
@@ -14,103 +14,87 @@
           loading="lazy"
         />
       </div>
+
       <div class="leading-tight">
-        <p class="text-xl font-extrabold tracking-tight text-slate-50">
-          Codery<span class="text-cyan-400">.mx</span>
+        <p class="text-xl font-extrabold tracking-tight text-slate-950">
+          Codery<span class="text-indigo-600">.mx</span>
         </p>
-        <p
-          class="text-[0.6rem] uppercase tracking-[0.2em] text-violet-400 font-semibold"
-        >
+        <p class="text-[0.65rem] font-semibold uppercase tracking-[0.22em] text-slate-500">
           Software Studio
         </p>
       </div>
     </a>
 
     <!-- Menú desktop -->
-    <nav class="hidden items-center gap-8 text-sm text-slate-300 md:flex">
-      <a href="#inicio" class="transition duration-150 hover:text-white"
-        >Inicio</a
-      >
-      <a href="#servicios" class="transition duration-150 hover:text-white"
-        >Servicios</a
-      >
-      <a href="#proyectos" class="transition duration-150 hover:text-white"
-        >Proyectos</a
-      >
-      <a href="#sobre-nosotros" class="transition duration-150 hover:text-white"
-        >Sobre nosotros</a
-      >
+    <nav class="hidden items-center gap-8 text-sm font-medium text-slate-600 md:flex">
+      <a href="#inicio" class="transition hover:text-indigo-600">Inicio</a>
+      <a href="#servicios" class="transition hover:text-indigo-600">Servicios</a>
+      <a href="#proyectos" class="transition hover:text-indigo-600">Proyectos</a>
+      <a href="#sobre-nosotros" class="transition hover:text-indigo-600">
+        Sobre nosotros
+      </a>
     </nav>
 
     <a
       href="#contacto"
-      class="btn-primary hidden rounded-full bg-gradient-to-r from-indigo-600 to-violet-600 px-5 py-2 text-sm font-semibold uppercase tracking-[0.1em] text-white shadow-lg shadow-indigo-500/40 md:inline-flex"
+      class="btn-primary hidden rounded-full bg-indigo-600 px-5 py-2.5 text-sm font-semibold text-white shadow-md shadow-indigo-600/20 hover:bg-indigo-700 md:inline-flex"
     >
-      Cotización
+      Cotización gratis
     </a>
 
     <!-- Botón móvil -->
     <button
       id="mobile-menu-toggle"
-      class="text-slate-200 md:hidden"
+      class="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-slate-200 bg-white text-slate-700 shadow-sm md:hidden"
       aria-label="Abrir menú"
+      aria-expanded="false"
     >
       ☰
-      <!-- Si quieres usar lucide, aquí puedes poner el icono luego -->
     </button>
   </div>
 
   <!-- Menú móvil -->
   <nav
     id="mobile-menu"
-    class="mx-auto mt-1 hidden max-w-6xl flex-col gap-2 px-4 pb-3 text-sm text-slate-200 md:hidden"
+    class="mx-auto hidden max-w-6xl flex-col gap-2 border-t border-slate-100 bg-white px-4 py-4 text-sm font-medium text-slate-700 shadow-lg md:hidden"
   >
-    <a
-      href="#inicio"
-      class="block rounded-lg px-3 py-2 hover:bg-slate-800/70"
-      data-mobile-link
-      >Inicio</a
-    >
-    <a
-      href="#servicios"
-      class="block rounded-lg px-3 py-2 hover:bg-slate-800/70"
-      data-mobile-link
-      >Servicios</a
-    >
-    <a
-      href="#proyectos"
-      class="block rounded-lg px-3 py-2 hover:bg-slate-800/70"
-      data-mobile-link
-      >Proyectos</a
-    >
-    <a
-      href="#sobre-nosotros"
-      class="block rounded-lg px-3 py-2 hover:bg-slate-800/70"
-      data-mobile-link
-      >Sobre nosotros</a
-    >
+    <a href="#inicio" class="block rounded-xl px-3 py-2 hover:bg-slate-100" data-mobile-link>
+      Inicio
+    </a>
+    <a href="#servicios" class="block rounded-xl px-3 py-2 hover:bg-slate-100" data-mobile-link>
+      Servicios
+    </a>
+    <a href="#proyectos" class="block rounded-xl px-3 py-2 hover:bg-slate-100" data-mobile-link>
+      Proyectos
+    </a>
+    <a href="#sobre-nosotros" class="block rounded-xl px-3 py-2 hover:bg-slate-100" data-mobile-link>
+      Sobre nosotros
+    </a>
     <a
       href="#contacto"
-      class="mt-1 block rounded-full bg-gradient-to-r from-indigo-600 to-violet-600 px-4 py-2 text-center text-xs font-semibold uppercase tracking-[0.15em] text-white shadow-lg shadow-indigo-500/40"
+      class="mt-2 block rounded-full bg-indigo-600 px-4 py-3 text-center text-sm font-semibold text-white shadow-md shadow-indigo-600/20"
       data-mobile-link
     >
-      Cotización
+      Cotización gratis
     </a>
   </nav>
 
-  <script>
+  <script is:inline>
     if (typeof window !== "undefined") {
       const toggle = document.getElementById("mobile-menu-toggle");
       const menu = document.getElementById("mobile-menu");
 
       toggle?.addEventListener("click", () => {
         menu?.classList.toggle("hidden");
+
+        const isOpen = !menu?.classList.contains("hidden");
+        toggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
       });
 
-      // Cerrar menú al hacer clic en cualquier enlace
       menu?.querySelectorAll("[data-mobile-link]").forEach((link) => {
         link.addEventListener("click", () => {
           menu.classList.add("hidden");
+          toggle?.setAttribute("aria-expanded", "false");
         });
       });
     }
